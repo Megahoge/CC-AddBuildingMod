@@ -1,0 +1,12 @@
+{
+	"Name": "AddBuildingMod",
+	"ID": "addBuildingMod",
+	"Author": "me",
+	"Description": "建物を追加する。",
+	"ModVersion": 0.999,
+	"GameVersion": 2.042,
+	"Date": "16/09/2021",
+	"Dependencies": [],
+	"Disabled": 1,
+	"AllowSteamAchievs":0
+}
