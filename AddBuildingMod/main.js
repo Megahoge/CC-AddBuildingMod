@@ -36,6 +36,12 @@ Game.registerMod("addBuildingMod",{
 			for(var i = 0; i < _mod.buildsMax; i ++){
 				_mod.builds[i].totalCookies += (_mod.builds[i].storedTotalCps * Game.globalCpsMult) / Game.fps;
 			}
+			
+			if(Game.T % Game.fps == 0){	
+				for(var i = 0; i < _mod.buildsMax; i ++){
+					_mod.builds[i].refresh();
+				}
+			}
 		});
 
 		// 描画更新タイミングの処理を登録
@@ -61,6 +67,7 @@ Game.registerMod("addBuildingMod",{
 		});
 
 		// ストア更新関数に追加した建物分も入れておく
+		/* v0.999:関数を直接フックするとCCSEと競合が発生するため、'logic'へ移動
 		var _origin = Game.RefreshStore;
 		Game.RefreshStore = function(){
 			_origin.apply();
@@ -69,6 +76,7 @@ Game.registerMod("addBuildingMod",{
 				_mod.builds[i].refresh();
 			}
 		}
+		*/
 	},
 	// セーブデータ書き出し
 	save:function(){
